@@ -1,8 +1,6 @@
 package model;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -50,23 +48,24 @@ public class TodoList {
     // MODIFIES: this
     // EFFECTS: sorts a todolist in chronological order according to the dueDate
     //          if there are two to-do items having the same due date,
-    //          the item that input first will be put at the front
+    //          the item that is inputted first will be put at the front
     public void sort(List<Todo> todoToSort) {
+//        todoToSort = this.todos;
         int i = 1;
-        while (i < this.todos.size()) {
-            Todo front = this.todos.get(i - 1);
-            Todo back = this.todos.get(i);
+        while (i < todoToSort.size()) {
+            Todo front = todoToSort.get(i - 1);
+            Todo back = todoToSort.get(i);
 
             if (!(isLaterOrSameDate(front.getDueDate(), back.getDueDate()))) {
-                this.todos.remove(back);
-                this.todos.add(i - 1, back);
-                sort(this.todos.subList(0, i - 1));
+                todoToSort.remove(back);
+                todoToSort.add(i - 1, back);
+                sort(todoToSort.subList(0, i));
             }
             i++;
         }
     }
 
-    // EFFECTS: returns true if date1 >= date2
+    // EFFECTS: returns true if date2 >= date1
     public boolean isLaterOrSameDate(int date1, int date2) {
         return (date2 >= date1);
     }

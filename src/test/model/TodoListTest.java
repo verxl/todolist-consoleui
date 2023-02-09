@@ -75,6 +75,7 @@ public class TodoListTest {
         Todo todo3 = new Todo("Office hour", "CPSC 213 Office hour", 20230301, 0);
         Todo todo4 = new Todo("Examlet 5", "CPSC 221 Examlet 5", 20230218, 40);
         Todo todo5 = new Todo("Tutorial", "English tutorial", 20230211, 50);
+        Todo todo6 = new Todo("Tutorial", "Math tutorial", 20230210, 40);
 
         // sorting an empty list (to make sure the method works with empty list)
         testTodos.sort(testTodos.getTodos());
@@ -105,7 +106,7 @@ public class TodoListTest {
         assertEquals(todo3, testTodos.getTodos().get(3));
 
 
-        // adding an additional to-do item with different due dates to testTodos
+        // adding an additional to-do item with the same due date to one of the to-do
         testTodos.addTodo("Tutorial", "English tutorial", 20230211, 50); // second earliest == "Coding Test"
 
         // sort the to-do list according to duedate
@@ -116,6 +117,18 @@ public class TodoListTest {
         assertEquals(todo5, testTodos.getTodos().get(2)); // appears after todo1 as todo5 is added later
         assertEquals(todo4, testTodos.getTodos().get(3));
         assertEquals(todo3, testTodos.getTodos().get(4));
+
+        // adding an additional to-do item with the same due dates as one of the to-do
+        testTodos.addTodo("Tutorial", "Math tutorial", 20230210, 40);
+
+        // sort the to-do list according to duedate
+        testTodos.sort(testTodos.getTodos());
+        assertEquals(todo2, testTodos.getTodos().get(0));
+        assertEquals(todo6, testTodos.getTodos().get(1)); // appears after todo1 as todo5 is added later
+        assertEquals(todo1, testTodos.getTodos().get(2));
+        assertEquals(todo5, testTodos.getTodos().get(3));
+        assertEquals(todo4, testTodos.getTodos().get(4));
+        assertEquals(todo3, testTodos.getTodos().get(5));
     }
 
     @Test
