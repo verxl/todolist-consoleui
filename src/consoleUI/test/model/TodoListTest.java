@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TodoListTest {
@@ -164,6 +165,34 @@ public class TodoListTest {
         assertFalse(filtered2.contains(todo3));
         assertFalse(filtered2.contains(todo4));
         assertTrue(filtered2.contains(todo5)); // filtered2 contains todo5 which has the same duedate as inputted
+    }
+
+    @Test
+    void testPrint() {
+        // printing an empty to-do list
+        assertEquals(new ArrayList<String>(), testTodos.print(testTodos.getTodos()));
+
+        // printing a to-do list with one element
+
+        Todo todo1 = new Todo("Coding Test", "SleekFlow Coding Test", 20230211, 15);
+        Todo todo2 = new Todo("Math Midterm", "Math 200 Midterm 1", 20230210, 80);
+        testTodos.addTodo("Coding Test", "SleekFlow Coding Test", 20230211, 15);
+        List<String> result = new ArrayList<>();
+        String str1 = "Name: " + todo1.getName() + "\n"
+                + "Description: " + todo1.getDescription() + "\n"
+                + "Due date: " + todo1.getDueDate() + "\n"
+                + "Status: " + todo1.getStatus() + "\n";
+        result.add(str1);
+        assertEquals(result, testTodos.print(testTodos.getTodos()));
+
+        testTodos.addTodo("Math Midterm", "Math 200 Midterm 1", 20230210, 80);
+        String str2 = "Name: " + todo2.getName() + "\n"
+                + "Description: " + todo2.getDescription() + "\n"
+                + "Due date: " + todo2.getDueDate() + "\n"
+                + "Status: " + todo2.getStatus() + "\n";
+        result.add(str2);
+        assertEquals(result, testTodos.print(testTodos.getTodos()));
+
     }
 
 }
