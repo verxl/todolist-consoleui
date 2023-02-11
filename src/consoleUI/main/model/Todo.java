@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Date;
+import org.json.JSONObject;
 import java.util.Objects;
 
 /**
@@ -69,5 +69,15 @@ public class Todo {
     @Override
     public int hashCode() {
         return Objects.hash(name, description, dueDate, status);
+    }
+
+    // EFFECTS: creates a new JSONObject for a to-do entry
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("description", description);
+        json.put("due date", dueDate);
+        json.put("status", status);
+        return json;
     }
 }

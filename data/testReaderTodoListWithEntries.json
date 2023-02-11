@@ -1,0 +1,26 @@
+{"Todo List": [
+    {
+        "due date": 20230211,
+        "name": "Coding Test",
+        "description": "SleekFlow Coding Test",
+        "status": 15
+    },
+    {
+        "due date": 20230210,
+        "name": "Math Midterm",
+        "description": "Math 200 Midterm 1",
+        "status": 80
+    },
+    {
+        "due date": 20230212,
+        "name": "Reading",
+        "description": "Finish the reading for EOSC 114",
+        "status": 0
+    },
+    {
+        "due date": 20230214,
+        "name": "Examlet 5",
+        "description": "CPSC 221 Examlet 5",
+        "status": 40
+    }
+]}
